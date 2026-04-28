@@ -1,1 +1,128 @@
-﻿
+﻿@model Game
+
+@{
+    ViewData["Title"] = "Novo Game";
+}
+
+<style>
+    .form-card {
+        background-color: #1a1d29;
+        border: 1px solid #2d313f;
+        border-radius: 8px;
+        padding: 2.5rem;
+    }
+
+    .text-white {
+        color: #ffffff !important;
+    }
+
+    .text-gray {
+        color: #8a8d98 !important;
+    }
+
+    .label-custom {
+        display: block;
+        margin-bottom: 6px;
+        color: #ffffff;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .form-control-dark {
+        background-color: #242734;
+        border: 1px solid #3f4451;
+        color: white !important;
+    }
+
+        .form-control-dark:focus {
+            background-color: #242734;
+            color: #ffffff;
+            border-color: #1db954;
+            box-shadow: none;
+        }
+
+        .form-control-dark::placeholder {
+            color: #6c757d !important;
+            opacity: 1;
+        }
+
+    .btn-green {
+        background-color: #1db954;
+        border: none;
+        color: white;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+        .btn-green:hover {
+            background-color: #17a34a;
+            color: white;
+        }
+
+    .btn-outline-custom {
+        border: 1px solid #8a8d98;
+        color: #ffffff;
+        font-weight: 500;
+        background: transparent;
+        transition: 0.3s;
+    }
+
+        .btn-outline-custom:hover {
+            background-color: #2d313f;
+            color: white;
+        }
+</style>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-6">
+            <div class="form-card shadow-lg">
+
+                <div class="text-center mb-4">
+                    <h3 class="text-white fw-bold mb-1">Novo Game</h3>
+                    <small class="text-gray">Adicione um novo título ao seu arsenal</small>
+                </div>
+
+                <form method="post" asp-action="Create">
+
+                    <div class="mb-3">
+                        <label asp-for="Titulo" class="label-custom">Título do Jogo</label>
+                        <input asp-for="Titulo" class="form-control form-control-dark" placeholder="Ex: Elden Ring" />
+                        for="Titulo" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Descricao" class="label-custom">Descrição Curta</label>
+                        <textarea asp-for="Descricao" class="form-control form-control-dark" rows="3" placeholder="Breve resumo do game..."></textarea>
+                        for="Descricao" class="text-danger small"></span>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <label asp-for="Preco" class="label-custom">Preço (R$)</label>
+                            <input asp-for="Preco" type="text" class="form-control form-control-dark" placeholder="0,00" />
+                            for="Preco" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="UrlImagem" class="label-custom">URL da Capa</label>
+                            <input asp-for="UrlImagem" class="form-control form-control-dark" placeholder="https://..." />
+                            for="UrlImagem" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="row gx-2">
+                        <div class="col-8">
+                            <button type="submit" class="btn btn-green w-100 py-2">Salvar Game</button>
+                        </div>
+                        <div class="col-4">
+                            <a asp-action="Index" asp-controller="Game" class="btn btn-outline-custom w-100 py-2">Voltar</a>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+

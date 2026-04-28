@@ -1,1 +1,141 @@
-﻿
+﻿@model GameStore.Models.LoginViewModel;
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    body {
+        background-color: #0f111a;
+    }
+
+    .login-card {
+        background-color: #1a1d29;
+        border: 1px solid #2d313f;
+        border-radius: 8px;
+        padding: 2rem;
+    }
+
+    .text-white {
+        color: #ffffff !important;
+    }
+
+    .text-gray {
+        color: #8a8d98 !important;
+    }
+
+    .label-custom {
+        display: block;
+        margin-bottom: 5px;
+        color: #ffffff;
+        font-size: 0.9rem;
+    }
+
+    .form-control-dark {
+        background-color: #242734;
+        border: 1px solid #3f4451;
+        color: #ffffff;
+    }
+
+        .form-control-dark:focus {
+            background-color: #242734;
+            color: #ffffff;
+            border-color: #1db954;
+            box-shadow: none;
+        }
+
+    .btn-green {
+        background-color: #1db954;
+        border: none;
+        color: white;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+        .btn-green:hover {
+            background-color: #17a34a;
+            color: white;
+        }
+
+    .link-green {
+        color: #1db954;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .link-green:hover {
+            color: #17a34a;
+            text-decoration: underline;
+        }
+
+    hr.subtle {
+        border-top: 1px solid #2d313f;
+        margin: 20px 0;
+    }
+
+    .form-control-dark::placeholder {
+        color: #6c757d !important;
+        opacity: 1; /
+    }
+
+    .form-control-dark::-webkit-input-placeholder {
+        color: #6c757d !important;
+    }
+
+    .form-control-dark {
+        color: white !important;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="login-card shadow-lg">
+
+                <div class="text-center mb-4">
+                    <h2 class="text-white fw-bold mb-1">Login</h2>
+                    <small class="text-gray">Entre para gerenciar seus games</small>
+                </div>
+
+                @if (TempData["Sucesso"] != null || TempData["Erro"] != null)
+                {
+                    <div class="alert @(TempData["Sucesso"] != null ? "alert-success" : "alert-danger") alert-dismissible fade show bg-dark text-white border-0" role="alert">
+                        @(TempData["Sucesso"] ?? TempData["Erro"])
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <form asp-action="Login" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="label-custom">E-mail</label>
+                        <input asp-for="Email" type="email" class="form-control form-control-dark" placeholder="nome@exemplo.com" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Senha" class="label-custom">Senha</label>
+                        <input asp-for="Senha" type="password" class="form-control form-control-dark" placeholder="********" />
+                        <span asp-validation-for="Senha" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-green py-2">Acessar</button>
+                    </div>
+
+                    <hr class="subtle">
+
+                    <div class="text-center">
+                        <small class="text-gray">Ainda não tem uma conta?</small><br />
+                        <a asp-controller="Auth" asp-action="Register" class="link-green small">
+                            Criar nova conta
+                        </a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

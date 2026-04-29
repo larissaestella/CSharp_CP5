@@ -9,9 +9,9 @@ namespace GameStore.Services
     {
         public static void Initialize(AppDbContext context)
         {
-=            context.Database.Migrate();
+            context.Database.Migrate();
 
-=            if (context.Games.Any())
+            if (context.Games.Any())
                 return;
 
             var games = new List<Game>

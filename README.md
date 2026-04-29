@@ -1,13 +1,13 @@
-﻿# CSharp_CP4
+﻿# CSharp_CP5
 
 Sistema web desenvolvido em **ASP.NET Core MVC** para gerenciamento e venda de jogos digitais.
 
 ## **Integrantes**
 
-* **Beatriz Silva Pinheiro Rocha - RM553455**
-* **Iago Diniz Fontes - RM553776**
-* **Larissa Estella Gonçalves dos Santos - RM552695**
-* **Rafael Alves do Nascimento - RM553117**
+* **Beatriz Silva Pinheiro Rocha - RM553455 - Dev**
+* **Iago Diniz Fontes - RM553776 - Dev**
+* **Larissa Estella Gonçalves dos Santos - RM552695 - Tech Lead**
+* **Rafael Alves do Nascimento - RM553117 - Dev**
 
 ---
 
@@ -32,15 +32,41 @@ O projeto segue o padrão **MVC (Model-View-Controller)** com separação de res
 
 ```
 GameStore/
+├── Program.cs   
 │
 ├── Controllers/
+│   ├── AuthController.cs
+│   ├── GameController.cs
+│   └── AdminController.cs
 ├── Data/
+│   ├── AppDbContext.cs
 ├── Interfaces/
+│   ├── IGameRepository.cs
+│   ├── IUserRepository.cs
 ├── Migrations/
 ├── Models/
+│   ├── Game.cs
+│   ├── LoginViewModel.cs
+│   ├── RegisterViewModel.cs
+│   ├── User.cs
+│   ├── ErrorViewModel.cs
 ├── Repositories/
+│   ├── GameRepository.cs
+│   ├── UserRepository.cs
 ├── Services/
+│   ├── DatabaseInitializer.cs
 └── Views/
+	├── Auth/
+	│   ├── Login.cshtml
+	│   └── Register.cshtml
+	├── Game/
+	│   ├── Create.cshtml
+	│   ├── Index.cshtml
+	│   └── Edit.cshtml
+	├── Home/
+	│   └── Index.cshtml
+	└── Shared/
+		└── _Layout.cshtml
 ```
 
 ---
@@ -58,7 +84,7 @@ Ao rodar o projeto:
 
 ---
 
-## 🔐 Acesso padrão (Admin)
+##  Acesso padrão (Admin)
 
 ```
 
@@ -71,10 +97,12 @@ Senha: 123456
 
 ##  Como Executar o Projeto
 
-### 1. Clonar repositório
+### 1. Clonar repositório e abrir projeto
 
 ```bash
-git clone https://github.com/seu-usuario/gamestore.git
+git clone https://github.com/seu-usuario/CSharp_CP5.git
+cd gamestore
+start GameStore.csproj
 ````
 
 ---

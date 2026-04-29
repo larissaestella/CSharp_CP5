@@ -88,25 +88,25 @@
                     <div class="mb-3">
                         <label asp-for="Titulo" class="label-custom">Título do Jogo</label>
                         <input asp-for="Titulo" class="form-control form-control-dark" placeholder="Ex: Elden Ring" />
-                        for="Titulo" class="text-danger small"></span>
+                        <span asp-validation-for="Titulo" class="text-danger small"></span>
                     </div>
 
                     <div class="mb-3">
                         <label asp-for="Descricao" class="label-custom">Descrição Curta</label>
                         <textarea asp-for="Descricao" class="form-control form-control-dark" rows="3" placeholder="Breve resumo do game..."></textarea>
-                        for="Descricao" class="text-danger small"></span>
+                        <span asp-validation-for="Descricao" class="text-danger small"></span>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label asp-for="Preco" class="label-custom">Preço (R$)</label>
                             <input asp-for="Preco" type="text" class="form-control form-control-dark" placeholder="0,00" />
-                            for="Preco" class="text-danger small"></span>
+                            <span asp-validation-for="Preco" class="text-danger small"></span>
                         </div>
                         <div class="col-md-6">
                             <label asp-for="UrlImagem" class="label-custom">URL da Capa</label>
                             <input asp-for="UrlImagem" class="form-control form-control-dark" placeholder="https://..." />
-                            for="UrlImagem" class="text-danger small"></span>
+                            <span asp-validation-for="UrlImagem" class="text-danger small"></span>
                         </div>
                     </div>
 
